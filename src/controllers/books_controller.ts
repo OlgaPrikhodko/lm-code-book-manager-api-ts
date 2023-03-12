@@ -27,6 +27,14 @@ export const saveBook = async (req: Request, res: Response) => {
 	}
 };
 
+export const deleteBook = async (req: Request, res: Response) => {
+	const bookId = Number.parseInt(req.params.bookId);
+
+	const count = await bookService.deleteBook(bookId);
+
+	res.status(200).json(count);
+};
+
 // User Story 4 - Update Book By Id Solution
 export const updateBook = async (req: Request, res: Response) => {
 	const bookUpdateData = req.body;
